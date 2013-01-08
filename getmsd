@@ -1,0 +1,17 @@
+#! /bin/bash
+
+lines=$( wc -l msd1.dat | awk '{print $1}' )
+newlines=$( echo "$lines*4/5" | bc )
+
+if [ "$1" ]
+then
+  ntypes=$1
+else
+  ntypes=2
+fi
+
+for (( i=1; i<=$ntypes; i++ ))
+do
+  echo -n "msd$i:"$'\t\t\t'
+  tail -$newlines msd$i.dat | regression.py 
+done
