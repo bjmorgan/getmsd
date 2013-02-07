@@ -1,5 +1,7 @@
 #! /usr/bin/python
 
+# http://en.wikipedia.org/wiki/Simple_linear_regression
+
 import sys
 from string import split
 
